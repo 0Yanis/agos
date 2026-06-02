@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OpenClaw — Το αυτόνομο λειτουργικό σύστημα για επαγγελματικά γραφεία. Τοπική εγκατάσταση, χειριστής στον βρόχο. Πρώτη κυκλοφορία: Legal Ops AI για ελληνικά δικηγορικά γραφεία.">
+    <title>OpenClaw — Αυτόνομο ΛΣ για Επαγγελματικά Γραφεία</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+    <div class="nav-inner">
+        <div class="nav-brand">
+            <span class="nav-logo">OpenClaw</span>
+            <span class="nav-tag">AGOS</span>
+        </div>
+        <div class="nav-links">
+            <a href="#platform">Πλατφόρμα</a>
+            <a href="#legal-ops">Legal Ops AI</a>
+            <a href="#architecture">Αρχιτεκτονική</a>
+            <a href="#roadmap">Οδικός Χάρτης</a>
+            <a href="#contact" class="nav-cta">Πρόσβαση Πιλότου</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-container">
+        <div class="hero-left">
+            <div class="hero-label">
+                <span class="mono-label">Πλατφόρμα Αυτόνομων Λειτουργιών</span>
+                <span class="hero-sep">—</span>
+                <span class="mono-label accent-text">AGOS v0.1</span>
+            </div>
+            <h1 class="hero-headline">
+                <span class="hero-line">Το αυτόνομο ΛΣ</span>
+                <span class="hero-line hero-line-em">για επαγγελματικά</span>
+                <span class="hero-line">γραφεία.</span>
+            </h1>
+            <div class="hero-sub">
+                <p>Πρώτη κυκλοφορία: <strong>Legal Ops AI</strong> — σχεδιασμένο αποκλειστικά για ελληνικά δικηγορικά γραφεία.
+                Αυτόνομοι πράκτορες διαχειρίζονται υποθέσεις, έγγραφα, δικαστικές προθεσμίες και επικοινωνία με πελάτες.
+                Ο δικηγόρος παραμένει σε έλεγχο κάθε απόφασης.</p>
+            </div>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Αίτηση Πιλοτικής Πρόσβασης</a>
+                <a href="#architecture" class="btn-ghost">Διαβάστε την Αρχιτεκτονική ↓</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="status-panel">
+                <div class="status-header">
+                    <span class="mono-label">System Status</span>
+                    <span class="mono-label accent-text">v2.5.0</span>
+                </div>
+                <div class="status-body">
+                    <div class="status-row">
+                        <span class="status-dot live"></span>
+                        <span class="status-name">nadia.judgment</span>
+                        <span class="status-val live-text">RUNNING</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-dot live"></span>
+                        <span class="status-name">scribe.sessions</span>
+                        <span class="status-val">READY</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-dot live"></span>
+                        <span class="status-name">work-orders.engine</span>
+                        <span class="status-val">43 active</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-dot live"></span>
+                        <span class="status-name">audit.trail</span>
+                        <span class="status-val">APPEND-ONLY</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-dot amber"></span>
+                        <span class="status-name">external-actions</span>
+                        <span class="status-val amber-text">APPROVAL REQ.</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-dot live"></span>
+                        <span class="status-name">channel.intake</span>
+                        <span class="status-val">WhatsApp · Email · Voice</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="status-dot live"></span>
+                        <span class="status-name">license.validator</span>
+                        <span class="status-val">Ed25519 · LOCAL</span>
+                    </div>
+                </div>
+                <div class="status-footer">
+                    <span class="mono-label muted">Legal Ops AI · Pilot production · Athens, GR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll-hint">
+        <span class="mono-label muted">κάτω</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- PLATFORM SECTION -->
+<section id="platform" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number mono-label">01</span>
+            <div class="section-title-group">
+                <h2 class="section-title">Ο πυρήνας.</h2>
+                <p class="section-subtitle">Ένας κοινός λειτουργικός πυρήνας επαναχρησιμοποιήσιμος σε επαγγελματικούς κλάδους. Κάθε υλοποίηση κληρονομεί τις ίδιες εγγυήσεις ασφαλείας, αρχιτεκτονική ελέγχου και χρόνο εκτέλεσης πρακτόρων. Μόνο η λογική του τομέα αλλάζει.</p>
+            </div>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar reveal">
+                <span class="pillar-id mono-label">KERNEL_01</span>
+                <h3>Πυρήνας Ασφαλείας</h3>
+                <p>Μεσίτης ενεργειών, εισιτήρια εξωτερικών ενεργειών, σύστημα πολλαπλής έγκρισης, διακόπτης έκτακτης ανάγκης, πύλη συμμόρφωσης. Κάθε ενέργεια που αγγίζει τον εξωτερικό κόσμο ελέγχεται ρητά. Χωρίς αθόρυβες αποστολές ή σιωπηλές λειτουργίες.</p>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-id mono-label">KERNEL_02</span>
+                <h3>Μηχανή Κρίσης</h3>
+                <p>Ο χρόνος εκτέλεσης αξιολόγησης κανόνων της Nadia. Λαμβάνει σήματα από όλα τα κανάλια, εφαρμόζει βαθμονομημένους κανόνες, παράγει προτάσεις. Μαθαίνει από τις αποφάσεις του χειριστή. Προτείνει — δεν αποφασίζει ποτέ μονομερώς.</p>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-id mono-label">KERNEL_03</span>
+                <h3>Λειτουργικό Εντολών</h3>
+                <p>Δομημένη διαχείριση εγγραφών με σχέδια εργασίας από τεχνητή νοημοσύνη. Παρακολουθεί εγγραφές πελατών, υποεργασίες, ανατεθειμένους πράκτορες και κατάσταση ολοκλήρωσης. Υποστηρίζει πολυβηματικές ροές με παράδοση και κλιμάκωση.</p>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-id mono-label">KERNEL_04</span>
+                <h3>Πλαίσιο Καναλιών</h3>
+                <p>Ενοποιημένη εισαγωγή μέσω WhatsApp, email (IMAP), CalDAV και χειροκίνητης μεταφόρτωσης. Αυτόματη ταξινόμηση προτεραιότητας, παρακολούθηση ταυτότητας πηγής, αποεπανάληψη. Επεκτάσιμο σε οποιαδήποτε επιφάνεια επικοινωνίας.</p>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-id mono-label">KERNEL_05</span>
+                <h3>Νοημοσύνη Εγγράφων</h3>
+                <p>Αγωγός OCR, σημασιολογική ταξινόμηση, έλεγχος εκδόσεων και συναρμολόγηση πλαισίου εγγράφων για προτροπές πρακτόρων. Διαχειρίζεται μεταφορτώσεις, τοπικούς φακέλους και αποθήκευση cloud. Πλήρης κύκλος ζωής από την εισαγωγή έως την αρχειοθέτηση.</p>
+            </div>
+            <div class="pillar reveal">
+                <span class="pillar-id mono-label">KERNEL_06</span>
+                <h3>Ίχνος Ελέγχου</h3>
+                <p>Αρχείο καταγραφής συμβάντων μόνο προσθήκης με πλήρη δυνατότητα επανάληψης. Κάθε ενέργεια πράκτορα, κάθε απόφαση χειριστή, κάθε εξωτερική επικοινωνία καταγράφεται. Διατήρηση, διαγραφή και εξαγωγή σύμφωνα με τον ΓΚΠΔ.</p>
+            </div>
+        </div>
+
+        <div class="substrate-stat reveal">
+            <div class="stat-block">
+                <span class="stat-number">78<span class="stat-pct">%</span></span>
+                <span class="stat-label mono-label">του κώδικα αποτελεί κάθετα-ανεξάρτητο υπόστρωμα</span>
+            </div>
+            <div class="stat-block">
+                <span class="stat-number">~251</span>
+                <span class="stat-label mono-label">αρχεία αντιγράφονται αυτούσια σε κάθε νέο κλάδο</span>
+            </div>
+            <div class="stat-block">
+                <span class="stat-number">22<span class="stat-pct">%</span></span>
+                <span class="stat-label mono-label">είναι τομεακό — το μόνο μέρος που ανακατασκευάζεται ανά κλάδο</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LEGAL OPS AI SECTION -->
+<section id="legal-ops" class="section section-inset">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number mono-label">02</span>
+            <div class="section-title-group">
+                <div class="release-badge">
+                    <span class="live-dot"></span>
+                    <span class="mono-label">LIVE — v2.5.0 — Παραγωγή</span>
+                </div>
+                <h2 class="section-title">Legal Ops AI.</h2>
+                <p class="section-subtitle">Ο πρώτος κλάδος OpenClaw. Ένα πλήρες σύστημα νομικών λειτουργιών με τεχνητή νοημοσύνη για ελληνικά δικηγορικά γραφεία. Λειτουργεί στα ελληνικά. Σχεδιασμένο γύρω από το ελληνικό νομικό σύστημα, τις δικαστικές προθεσμίες και τις εγχώριες κανονιστικές απαιτήσεις.</p>
+            </div>
+        </div>
+
+        <div class="capabilities-layout">
+            <div class="capabilities-grid">
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">01</span>
+                        <h3>Nadia — Κρίση ΤΝ</h3>
+                    </div>
+                    <p>Προτείνει ενέργειες, ιεραρχεί υποθέσεις, αναδεικνύει αποφάσεις. Βαθμονομημένη από ανατροφοδότηση δικηγόρων. Δεν ενεργεί ποτέ χωρίς ρητή έγκριση. Η μηχανή κρίσης μέσω της οποίας δρομολογείται κάθε άλλο χαρακτηριστικό.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">02</span>
+                        <h3>Scribe — Καταγραφή Συναντήσεων</h3>
+                    </div>
+                    <p>Καταγράφει και μεταγράφει διαβουλεύσεις πελατών με ρητή συγκατάθεση. Εξάγει εργασίες, προθεσμίες και δεσμεύσεις. Δρομολογεί αυτόματα την έξοδο στη σωστή υπόθεση.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">03</span>
+                        <h3>Εντολές Εργασίας</h3>
+                    </div>
+                    <p>Δομημένη διαχείριση εργασιών ανά υπόθεση. Η ΤΝ συντάσσει το σχέδιο εργασίας· ο δικηγόρος εγκρίνει. Παρακολουθεί αναθέσεις πρακτόρων, υποεργασίες και αλυσίδες αποδεικτικών στοιχείων σε ολόκληρο τον κύκλο ζωής.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">04</span>
+                        <h3>Παρακολούθηση Δικαστηρίων</h3>
+                    </div>
+                    <p>Παρακολουθεί προθεσμίες σε ελληνικές δικαστικές πύλες (Σόλων, Άρειος Πάγος, AdjuStice). Ειδοποιεί πριν από κρίσιμες ημερομηνίες. Πρόσβαση μόνο ανάγνωσης — δεν υποβάλλει ποτέ τίποτα.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">05</span>
+                        <h3>Σχέδια Δικογράφων</h3>
+                    </div>
+                    <p>Σύνταξη με βοήθεια ΤΝ σε 28+ τύπους δικογράφων (αγωγή, έφεση, αναίρεση, παρέμβαση…). Κάθε αποτέλεσμα είναι μόνο σχέδιο — καμία υποβολή χωρίς ρητή ενέργεια δικηγόρου.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">06</span>
+                        <h3>Ενοποίηση Καναλιών</h3>
+                    </div>
+                    <p>WhatsApp, email και ημερολόγιο ενοποιημένα σε μία ουρά εισαγωγής. Αυτόματη ταξινόμηση βάσει επείγοντος και τύπου υπόθεσης. Παρακολούθηση ταυτότητας πηγής σε όλα τα κανάλια.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">07</span>
+                        <h3>Φωνητική Γραμματεία</h3>
+                    </div>
+                    <p>Φωνητική εισαγωγή κλήσεων από ElevenLabs. Μιλά ελληνικά. Εξάγει σκοπό κλήσης, επείγον και ταυτότητα καλούντος. Παραδίδει στην ουρά εισαγωγής με δομημένη περίληψη.</p>
+                </div>
+                <div class="capability reveal">
+                    <div class="cap-header">
+                        <span class="cap-num mono-label">08</span>
+                        <h3>Νοημοσύνη Εγγράφων</h3>
+                    </div>
+                    <p>OCR, σημασιολογική ταξινόμηση και έλεγχος εκδόσεων για όλα τα έγγραφα υποθέσεων. Δημιουργεί αυτόματα το πλαίσιο εγγράφων που εισάγεται σε κάθε προτροπή πράκτορα.</p>
+                </div>
+            </div>
+            <div class="legal-ops-callout reveal">
+                <div class="callout-inner">
+                    <span class="mono-label muted">Σε παραγωγή</span>
+                    <blockquote>«Κάθε εξωτερική ενέργεια — κάθε email, κάθε υποβολή, κάθε μήνυμα — απαιτεί ρητή έγκριση δικηγόρου. Το σύστημα προτείνει. Ο δικηγόρος αποφασίζει.»</blockquote>
+                    <div class="callout-stats">
+                        <div class="c-stat">
+                            <span class="c-num">3.800<span class="c-plus">+</span></span>
+                            <span class="c-label mono-label">αυτοματοποιημένα τεστ</span>
+                        </div>
+                        <div class="c-stat">
+                            <span class="c-num">28</span>
+                            <span class="c-label mono-label">υποστηριζόμενοι τύποι δικογράφων</span>
+                        </div>
+                        <div class="c-stat">
+                            <span class="c-num">14</span>
+                            <span class="c-label mono-label">εξειδικευμένοι πράκτορες ΤΝ</span>
+                        </div>
+                    </div>
+                    <div class="callout-lang">
+                        <span class="mono-label muted">Γλώσσα:</span>
+                        <span>Ελληνικά · Αγγλική διεπαφή</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ARCHITECTURE SECTION -->
+<section id="architecture" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number mono-label">03</span>
+            <div class="section-title-group">
+                <h2 class="section-title">Πώς λειτουργεί.</h2>
+                <p class="section-subtitle">Τοπικά πρώτα. Χειριστής στον βρόχο. Καμία σιωπηλή αυτοματοποίηση. Ο ίδιος αγωγός εκτελείται στο υλικό σας — καμία εξάρτηση από cloud για τον βασικό χρόνο εκτέλεσης.</p>
+            </div>
+        </div>
+
+        <div class="principles-row reveal">
+            <div class="principle">
+                <span class="principle-icon">◈</span>
+                <strong>Τοπικά πρώτα</strong>
+                <p>Ο διακομιστής γέφυρας και η βάση δεδομένων εκτελούνται στο υλικό του γραφείου σας. Τα δεδομένα πελατών δεν εγκαταλείπουν ποτέ το δίκτυό σας εκτός αν επιλέξετε ρητά ένα κανάλι cloud.</p>
+            </div>
+            <div class="principle">
+                <span class="principle-icon">◉</span>
+                <strong>Δικηγόρος στον βρόχο</strong>
+                <p>Κάθε πρόταση από κάθε πράκτορα δρομολογείται μέσω ουράς έγκρισης. Καμία ενέργεια που αφορά πελάτη, δικαστήριο ή οποιονδήποτε εξωτερικό συντελεστή δεν εκτελείται χωρίς καταγεγραμμένη απόφαση.</p>
+            </div>
+            <div class="principle">
+                <span class="principle-icon">◇</span>
+                <strong>Ίχνος ελέγχου μόνο προσθήκης</strong>
+                <p>Κάθε ενέργεια πράκτορα, έγκριση και απόρριψη εγγράφεται σε αμετάβλητο αρχείο. Τίποτα δεν διαγράφεται. Κάθε απόφαση μπορεί να επαναληφθεί και να επιθεωρηθεί ανά πάσα στιγμή.</p>
+            </div>
+        </div>
+
+        <div class="pipeline reveal">
+            <div class="pipe-stage">
+                <div class="pipe-box">
+                    <span class="pipe-label mono-label">Κανάλια Εισαγωγής</span>
+                    <div class="pipe-channels">
+                        <span>WhatsApp</span>
+                        <span>Email</span>
+                        <span>Φωνή</span>
+                        <span>Χειροκίνητο</span>
+                    </div>
+                </div>
+                <div class="pipe-arrow">↓</div>
+            </div>
+            <div class="pipe-stage">
+                <div class="pipe-box">
+                    <span class="pipe-label mono-label">Τριάζ Εισαγωγής</span>
+                    <p>Ταξινόμηση προτεραιότητας · Αντιστοίχιση υποθέσεων · Σύνδεση Scribe · Ταυτότητα πηγής</p>
+                </div>
+                <div class="pipe-arrow">↓</div>
+            </div>
+            <div class="pipe-stage">
+                <div class="pipe-box pipe-box-accent">
+                    <span class="pipe-label mono-label">Μηχανή Κρίσης (Nadia)</span>
+                    <p>Αξιολόγηση κανόνων · Βαθμολόγηση εμπιστοσύνης · Δημιουργία προτάσεων · Εκμάθηση ανατροφοδότησης</p>
+                </div>
+                <div class="pipe-arrow">↓</div>
+            </div>
+            <div class="pipe-stage">
+                <div class="pipe-box pipe-box-approval">
+                    <span class="pipe-label mono-label">Ουρά Έγκρισης</span>
+                    <p>Αναθεώρηση δικηγόρου · Καταγραφή απόφασης · Κλείδωμα ωφέλιμου φορτίου · Εγγραφή ελέγχου</p>
+                </div>
+                <div class="pipe-arrow">↓</div>
+            </div>
+            <div class="pipe-stage">
+                <div class="pipe-box">
+                    <span class="pipe-label mono-label">Εκτέλεση</span>
+                    <p>Αποστολή · Υποβολή · Αρχειοθέτηση · Ενημέρωση υπόθεσης</p>
+                    <div class="pipe-never">
+                        <span class="mono-label accent-text">Ποτέ χωρίς ρητή έγκριση.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ROADMAP SECTION -->
+<section id="roadmap" class="section section-inset">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number mono-label">04</span>
+            <div class="section-title-group">
+                <h2 class="section-title">Κλάδοι πλατφόρμας.</h2>
+                <p class="section-subtitle">Το Legal Ops AI είναι η πρώτη κυκλοφορία σε παραγωγή. Το ίδιο υπόστρωμα θα τροφοδοτεί σκόπιμες υλοποιήσεις για άλλους τύπους επαγγελματικών γραφείων. Κάθε κλάδος αποκτά τον πλήρη πυρήνα — ανακατασκευάζεται μόνο η λογική του τομέα.</p>
+            </div>
+        </div>
+
+        <div class="roadmap-table">
+            <div class="roadmap-row roadmap-live">
+                <div class="rm-num mono-label">01</div>
+                <div class="rm-main">
+                    <div class="rm-name">Legal Ops AI</div>
+                    <div class="rm-desc">Ελληνικά δικηγορικά γραφεία · Παρακολούθηση δικαστικών προθεσμιών · Σχέδια δικογράφων · Εισαγωγή πελατών · Νοημοσύνη εγγράφων · 14 εξειδικευμένοι πράκτορες</div>
+                </div>
+                <div class="rm-status">
+                    <div class="rm-bar">
+                        <div class="rm-fill live-fill" data-width="100"></div>
+                    </div>
+                    <div class="rm-tag live-tag">
+                        <span class="live-dot-sm"></span>
+                        <span class="mono-label">LIVE · v2.5.0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-row reveal">
+                <div class="rm-num mono-label">02</div>
+                <div class="rm-main">
+                    <div class="rm-name">Ιατρική Πρακτική</div>
+                    <div class="rm-desc">Κλινικές & ειδικοί · Εισαγωγή ραντεβού · Διαχείριση εγγράφων ασθενών · Διαχείριση παραπομπών · Ροές συμμόρφωσης</div>
+                </div>
+                <div class="rm-status">
+                    <div class="rm-bar">
+                        <div class="rm-fill partial-fill" data-width="35"></div>
+                    </div>
+                    <div class="rm-tag">
+                        <span class="mono-label muted">2026 Τ3 · Πρώιμη πρόσβαση</span>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-row reveal">
+                <div class="rm-num mono-label">03</div>
+                <div class="rm-main">
+                    <div class="rm-name">Λογιστική & Φορολογία</div>
+                    <div class="rm-desc">Λογιστικές εταιρείες · Διαχείριση εγγραφών πελατών · Παρακολούθηση φορολογικών προθεσμιών · Νοημοσύνη εγγράφων · Ροές έγκρισης</div>
+                </div>
+                <div class="rm-status">
+                    <div class="rm-bar">
+                        <div class="rm-fill short-fill" data-width="15"></div>
+                    </div>
+                    <div class="rm-tag">
+                        <span class="mono-label muted">2026 Τ4</span>
+                    </div>
+                </div>
+            </div>
+            <div class="roadmap-row reveal">
+                <div class="rm-num mono-label">04</div>
+                <div class="rm-main">
+                    <div class="rm-name">Λειτουργίες Εφοδιαστικής</div>
+                    <div class="rm-desc">Συντονισμός στόλου & εφοδιαστικής αλυσίδας · Διαχείριση εντολών εργασίας · Επικοινωνίες προμηθευτών · Λειτουργικές αναφορές</div>
+                </div>
+                <div class="rm-status">
+                    <div class="rm-bar">
+                        <div class="rm-fill empty-fill" data-width="4"></div>
+                    </div>
+                    <div class="rm-tag">
+                        <span class="mono-label muted">2027</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="roadmap-note reveal">
+            <span class="mono-label muted">Προσαρμοσμένοι κλάδοι διαθέσιμοι κατόπιν αιτήματος — το υπόστρωμα σχεδιάστηκε για προσαρμογή.</span>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="section-number mono-label">05</span>
+            <div class="section-title-group">
+                <h2 class="section-title">Αίτηση πρόσβασης.</h2>
+                <p class="section-subtitle">Δεχόμαστε αιτήματα πιλοτικής δοκιμής για το Legal Ops AI και εγγραφές πρώιμης πρόσβασης για επερχόμενους κλάδους. Συνεργαζόμαστε απευθείας με γραφεία — χωρίς αυτοματοποιημένες ακολουθίες εισαγωγής.</p>
+            </div>
+        </div>
+
+        <div class="contact-layout reveal">
+            <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="mono-label" for="name">Όνομα</label>
+                        <input type="text" id="name" name="name" placeholder="Το όνομά σας" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="mono-label" for="firm">Εταιρεία / Γραφείο</label>
+                        <input type="text" id="firm" name="firm" placeholder="Επωνυμία γραφείου ή οργανισμού" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="mono-label" for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@firm.gr" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="mono-label" for="vertical">Κλάδος ενδιαφέροντος</label>
+                        <select id="vertical" name="vertical" required>
+                            <option value="">Επιλέξτε—</option>
+                            <option value="legal">Legal Ops AI (ελληνικό δικηγορικό γραφείο)</option>
+                            <option value="medical">Ιατρική Πρακτική (Πρώιμη Πρόσβαση)</option>
+                            <option value="accounting">Λογιστική & Φορολογία (2026 Τ4)</option>
+                            <option value="logistics">Λειτουργίες Εφοδιαστικής (2027)</option>
+                            <option value="custom">Προσαρμοσμένος κλάδος — ας συζητήσουμε</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="mono-label" for="message">Πλαίσιο (προαιρετικό)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Μέγεθος γραφείου, τρέχοντα εργαλεία, ποια λειτουργικά προβλήματα επιθυμείτε να λύσετε…"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Αποστολή Αιτήματος</button>
+                    <span class="mono-label muted form-note">Απαντάμε εντός 48 ωρών. Χωρίς αυτοματοποιημένες ακολουθίες παρακολούθησης.</span>
+                </div>
+                <div class="form-success" id="form-success">
+                    <span class="mono-label live-text">Αίτημα παραλήφθηκε.</span>
+                    <p>Θα επικοινωνήσουμε εντός 48 ωρών.</p>
+                </div>
+            </form>
+            <div class="contact-sidebar">
+                <div class="sidebar-block">
+                    <span class="mono-label">Τρέχουσα κατάσταση</span>
+                    <p>Το Legal Ops AI βρίσκεται σε ενεργή πιλοτική λειτουργία με δικηγορικά γραφεία στην Ελλάδα. Δεχόμαστε περιορισμένο αριθμό επιπλέον γραφείων.</p>
+                </div>
+                <div class="sidebar-block">
+                    <span class="mono-label">Τι να περιμένετε</span>
+                    <p>Μια κλήση για να κατανοήσουμε το γραφείο σας. Ένα οριοθετημένο πιλότο με τα πραγματικά σας δεδομένα. Χωρίς δέσμευση, χωρίς κόστος ανά χρήστη κατά την πιλοτική φάση.</p>
+                </div>
+                <div class="sidebar-block">
+                    <span class="mono-label">Ανάπτυξη</span>
+                    <p>Τοπική εγκατάσταση στο υλικό του γραφείου. Αναλαμβάνουμε τη ρύθμιση και διαμόρφωση. Πλήρης κυριαρχία δεδομένων από την πρώτη μέρα.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <span class="footer-logo">OpenClaw</span>
+            <span class="mono-label muted footer-tagline">Αυτόνομο ΛΣ για Επαγγελματικά Γραφεία</span>
+        </div>
+        <div class="footer-links">
+            <a href="#platform">Πλατφόρμα</a>
+            <a href="#legal-ops">Legal Ops AI</a>
+            <a href="#roadmap">Οδικός Χάρτης</a>
+            <a href="#contact">Επικοινωνία</a>
+        </div>
+        <div class="footer-legal">
+            <span class="mono-label muted">Το Legal Ops AI βρίσκεται σε παραγωγή με πιλοτικά δικηγορικά γραφεία στην Ελλάδα.<br>Όλες οι ενέργειες πρακτόρων απαιτούν ρητή επαγγελματική έγκριση.</span>
+        </div>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
