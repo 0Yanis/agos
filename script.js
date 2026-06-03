@@ -50,25 +50,32 @@ const form = document.getElementById('contact-form');
 const successMsg = document.getElementById('form-success');
 
 if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const btn = form.querySelector('button[type="submit"]');
-        const data = new FormData(form);
-
-        btn.textContent = 'Sending…';
+        btn.textContent = 'Αποστολή…';
         btn.disabled = true;
 
-        // Simulate send — replace with real endpoint
-        setTimeout(() => {
-            btn.style.display = 'none';
-            if (successMsg) {
-                successMsg.style.display = 'flex';
-            }
-            form.querySelectorAll('input, select, textarea').forEach(el => {
-                el.disabled = true;
+        try {
+            const res = await fetch('https://formspree.io/f/mrevzrql', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
             });
-        }, 800);
+
+            if (res.ok) {
+                btn.style.display = 'none';
+                if (successMsg) successMsg.style.display = 'flex';
+                form.querySelectorAll('input, select, textarea').forEach(el => el.disabled = true);
+            } else {
+                btn.textContent = 'Σφάλμα — δοκιμάστε ξανά';
+                btn.disabled = false;
+            }
+        } catch {
+            btn.textContent = 'Σφάλμα — δοκιμάστε ξανά';
+            btn.disabled = false;
+        }
     });
 }
 
