@@ -49,9 +49,61 @@ if (roadmapTable) barObserver.observe(roadmapTable);
 const form = document.getElementById('contact-form');
 const successMsg = document.getElementById('form-success');
 
+function setFieldError(el, msg) {
+    el.classList.add('invalid');
+    let span = el.parentElement.querySelector('.field-error-msg');
+    if (!span) {
+        span = document.createElement('span');
+        span.className = 'field-error-msg';
+        el.after(span);
+    }
+    span.textContent = msg;
+}
+
+function clearFieldError(el) {
+    el.classList.remove('invalid');
+    const span = el.parentElement.querySelector('.field-error-msg');
+    if (span) span.remove();
+}
+
+function validateForm() {
+    let valid = true;
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const fields = [
+        { el: form.querySelector('#name'),     msg: 'Απαιτείται όνομα.' },
+        { el: form.querySelector('#firm'),     msg: 'Απαιτείται επωνυμία.' },
+        { el: form.querySelector('#vertical'), msg: 'Επιλέξτε κλάδο.' },
+    ];
+
+    fields.forEach(({ el, msg }) => {
+        if (!el.value.trim()) { setFieldError(el, msg); valid = false; }
+        else clearFieldError(el);
+    });
+
+    const emailEl = form.querySelector('#email');
+    if (!emailEl.value.trim()) {
+        setFieldError(emailEl, 'Απαιτείται email.');
+        valid = false;
+    } else if (!emailRe.test(emailEl.value.trim())) {
+        setFieldError(emailEl, 'Μη έγκυρη διεύθυνση email.');
+        valid = false;
+    } else {
+        clearFieldError(emailEl);
+    }
+
+    return valid;
+}
+
 if (form) {
+    form.querySelectorAll('input, select, textarea').forEach(el => {
+        el.addEventListener('input', () => clearFieldError(el));
+        el.addEventListener('change', () => clearFieldError(el));
+    });
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+        if (!validateForm()) return;
 
         const btn = form.querySelector('button[type="submit"]');
         btn.textContent = 'Αποστολή…';
